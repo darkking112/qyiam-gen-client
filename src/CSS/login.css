@@ -1,0 +1,144 @@
+/* General styles */
+body {
+  margin: 0;
+  font-family: 'Cairo', sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+  direction: rtl;
+}
+
+.login-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+/* header styles */
+.header {
+  width: 100%;
+  background-color: #109bc5;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  position: absolute;
+  top: 0;
+}
+
+.login-header {
+  text-align: center;
+  width: 100%;
+  background-color: #109bc5;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  position: absolute;
+  top: 0;
+}
+
+.header-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 10px 40px;
+}
+
+.header-button {
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 15px;
+  cursor: pointer;
+  font-size: 1rem;
+  margin: 10px 40px;
+  transition: background-color 0.3s;
+}
+
+.header-button:hover {
+  background-color: #c0392b;
+}
+
+/* Login container styles */
+.login-container {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+}
+
+h2 {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  color: #2c3e50;
+}
+
+.error-dialog {
+  background-color: #e74c3c;
+  color: white;
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+}
+
+/* Form styles */
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+label {
+  font-size: 1rem;
+  text-align: right;
+}
+
+input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+input:focus {
+  outline: none;
+  border-color: #109bc5;
+  box-shadow: 0 0 5px rgba(16, 155, 197, 0.5);
+}
+
+/* Button styles */
+.login-button-container {
+  display: flex;
+  justify-content: center;
+}
+
+.login-btn {
+  background-color: #efbb20;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.login-btn:hover {
+  background-color: #d9a619;
+}
+
+.loading-spinner {
+  margin: 20px 0;
+  text-align: center;
+  color: #109bc5;
+  font-size: 1.2rem;
+}
