@@ -8,8 +8,12 @@ import AssignToClassDialog from "./components/AssignToClassDialog";
 import NewClassForm from "./components/NewClassForm";
 import RemoveClassDialog from "./components/RemoveClassDialog";
 import RenameClassDialog from "./components/RenameClassDialog";
+import { useLocation } from "react-router";
 
 function Admin() {
+  const location = useLocation();
+  let user = location.state?.user;
+
   const [users, setUsers] = useState([]);
   const [selectedUser, setSelectedUser] = useState(null);
   const [classes, setClasses] = useState([]);
@@ -320,7 +324,7 @@ function Admin() {
 
   return (
     <div className="admin-page">
-      <Header isLoginPage={false} />
+      <Header isLoginPage={false} name={user.name} />
       {showErrorDialog && (
         <div className="error-dialog">
           <p>{errorMessage}</p>
