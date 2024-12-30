@@ -1,0 +1,169 @@
+/* General styles */
+body {
+  margin: 0;
+  font-family: 'Cairo', sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+  direction: rtl;
+}
+
+/* Student Page Styles */
+.student-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.student-container {
+  width: 90%;
+  max-width: 1200px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-top: 90px;
+  text-align: center;
+}
+
+.check-eligibility-btn {
+  background-color: #efbb20;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 1.3rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-top: 20px;
+}
+
+.check-eligibility-btn:hover {
+  background-color: #d9a619;
+  color: white;
+}
+
+.error-dialog {
+  background-color: #e74c3c;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Dialog styles */
+.dialog-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dialog {
+  background-color: white;
+  border-radius: 10px;
+  padding: 20px;
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.dialog h2 {
+  margin: 5px 0;
+  font-size: 1.4rem;
+  color: #109bc5;
+}
+
+.dialog h3 {
+  margin: 5px 0;
+  font-size: 1.2rem;
+  color: #109bc5;
+}
+
+.dialog p {
+  margin: 5px 0;
+  font-size: 1rem;
+  color: #333;
+}
+
+/* Button styles */
+button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s;
+}
+
+button.close-button {
+  background-color: #e74c3c;
+  color: white;
+}
+
+button.close-button:hover {
+  background-color: #c0392b;
+}
+
+button.confirm-button {
+  background-color: #efbb20;
+  color: white;
+}
+
+button.confirm-button:hover {
+  background-color: #d9a619;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .student-container {
+    padding: 15px;
+  }
+
+  .dialog {
+    width: 95%;
+    padding: 15px;
+  }
+
+  .dialog h2, .dialog h3 {
+    font-size: 1rem;
+  }
+
+  button {
+    padding: 8px 10px;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .student-page .header p {
+    font-size: 0.9rem;
+  }
+
+  .student-page .header .header-button {
+    font-size: 0.75rem;
+  }
+  .student-container {
+    margin-top: 70px;
+  }
+
+  .dialog {
+    padding: 10px;
+  }
+
+  .dialog h2, .dialog h3 {
+    font-size: 0.9rem;
+  }
+
+  button {
+    padding: 6px 8px;
+    font-size: 0.8rem;
+  }
+}

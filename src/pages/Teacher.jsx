@@ -159,80 +159,78 @@ function Teacher() {
     setNewShowSheetForm(false);
   };
 
-  //   setErrorMessage("حدث خطأ، يرجى المحاولة لاحقا");
-  //       setShowErrorDialog(true);
   return (
     <div className="teacher-page">
       <Header isLoginPage={false} name={teacher ? teacher.name : ""} />
 
-      {showErrorDialog && (
+      {showErrorDialog ? (
         <div className="error-dialog">
           <p>{errorMessage}</p>
         </div>
+      ) : (
+        <div className="teacher-container">
+          <h3>{""}</h3>
+          <table className="students-table">
+            <thead>
+              <tr>
+                <th>{"رقم الطالب"}</th>
+                <th>{"اسم الطالب"}</th>
+                <th>{"الاجراءات"}</th>
+              </tr>
+            </thead>
+            <tbody>
+              {studentsList.map((student, index) => {
+                return (
+                  <tr key={index}>
+                    <td>{student.studentID}</td>
+                    <td>{student.name}</td>
+                    <td>
+                      <button
+                        className="add-comment-btn"
+                        onClick={() => handleAddCommentClick(student)}
+                      >
+                        {"إضافة ملاحظة"}
+                      </button>
+                      <button
+                        className="view-logs-btn"
+                        onClick={() => handleShowStudentLogs(student)}
+                      >
+                        {"عرض السجل اليومي"}
+                      </button>
+                    </td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+
+          {showCommentDialog ? (
+            <NewCommentDialog
+              student={selectedStudent}
+              onClose={onAddCommentCancel}
+              onConfirm={onAddCommentConfirm}
+            />
+          ) : null}
+
+          {showStudentSheets ? (
+            <SheetLogsDialog
+              student={selectedStudent}
+              logs={studentSheets}
+              onClose={onCloseStudentLogs}
+              onAddSheet={handleAddSheetClick}
+            />
+          ) : null}
+
+          {showNewSheetForm ? (
+            <NewSheetForm
+              student={selectedStudent}
+              onClose={onAddSheetCancel}
+              onSubmit={onAddSheetConfirm}
+              insertedBy={"Teacher"}
+            />
+          ) : null}
+        </div>
       )}
-
-      <div className="teacher-container">
-        <h3>{""}</h3>
-        <table className="students-table">
-          <thead>
-            <tr>
-              <th>{"رقم الطالب"}</th>
-              <th>{"اسم الطالب"}</th>
-              <th>{"الاجراءات"}</th>
-            </tr>
-          </thead>
-          <tbody>
-            {studentsList.map((student, index) => {
-              return (
-                <tr key={index}>
-                  <td>{student.studentID}</td>
-                  <td>{student.name}</td>
-                  <td>
-                    <button
-                      className="add-comment-btn"
-                      onClick={() => handleAddCommentClick(student)}
-                    >
-                      {"إضافة ملاحظة"}
-                    </button>
-                    <button
-                      className="view-logs-btn"
-                      onClick={() => handleShowStudentLogs(student)}
-                    >
-                      {"عرض السجل اليومي"}
-                    </button>
-                  </td>
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
-
-        {showCommentDialog ? (
-          <NewCommentDialog
-            student={selectedStudent}
-            onClose={onAddCommentCancel}
-            onConfirm={onAddCommentConfirm}
-          />
-        ) : null}
-
-        {showStudentSheets ? (
-          <SheetLogsDialog
-            student={selectedStudent}
-            logs={studentSheets}
-            onClose={onCloseStudentLogs}
-            onAddSheet={handleAddSheetClick}
-          />
-        ) : null}
-
-        {showNewSheetForm ? (
-          <NewSheetForm
-            student={selectedStudent}
-            onClose={onAddSheetCancel}
-            onSubmit={onAddSheetConfirm}
-            insertedBy={"Teacher"}
-          />
-        ) : null}
-      </div>
     </div>
   );
 }
