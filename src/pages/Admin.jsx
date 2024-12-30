@@ -7,7 +7,7 @@ import NewUserForm from "./components/NewUserForm";
 import AssignToClassDialog from "./components/AssignToClassDialog";
 import NewClassForm from "./components/NewClassForm";
 import RemoveClassDialog from "./components/RemoveClassDialog";
-import RenameClassDialog from "./RenameClassDialog";
+import RenameClassDialog from "./components/RenameClassDialog";
 
 function Admin() {
   const [users, setUsers] = useState([]);
