@@ -318,10 +318,6 @@ function Admin() {
     setShowRemoveClassDialog(false);
   };
 
-  // setShowAssignToClassDialog(false);
-  // setErrorMessage("حدث خطأ، يرجى المحاولة لاحقا");
-  // setShowErrorDialog(true);
-  // console.log(response);
   return (
     <div className="admin-page">
       <Header isLoginPage={false} />
