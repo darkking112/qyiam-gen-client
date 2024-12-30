@@ -29,9 +29,9 @@ function Login() {
       if (response.message === "Loggedin Successfully") {
         let { userInfo } = response;
         if (userInfo.role === "Student")
-          navigate("/student", { state: { user: userInfo } });
+          navigate("/student", { state: { student: response.studentInfo } });
         else if (userInfo.role === "Teacher")
-          navigate("/teacher", { state: { user: userInfo } });
+          navigate("/teacher", { state: { teacher: response.teacherInfo } });
         else if (userInfo.role === "Admin")
           navigate("/admin", { state: { user: userInfo } });
       } else {
@@ -70,7 +70,7 @@ function Login() {
 
         {!isLoading && (
           <form onSubmit={onSubmitClick} className="login-form">
-            <label htmlFor="email">{"الايميل"}</label>
+            <label htmlFor="email">{"البريد الالكتروني"}</label>
             <input
               type="text"
               id="email"
