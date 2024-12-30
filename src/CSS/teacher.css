@@ -1,0 +1,332 @@
+/* General styles */
+body {
+  margin: 0;
+  font-family: 'Cairo', sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+  direction: rtl;
+}
+
+/* Teacher Page Styles */
+.teacher-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.teacher-container {
+  width: 90%;
+  max-width: 1200px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-top: 90px;
+}
+
+h3 {
+  font-size: 1.5rem;
+  color: #109bc5;
+  margin-bottom: 20px;
+}
+
+/* Table styles */
+.students-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.students-table th, .students-table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: center;
+}
+
+.students-table th {
+  background-color: #109bc5;
+  color: white;
+}
+
+.students-table td {
+  font-size: 1rem;
+}
+
+.students-table td:nth-child(3) {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+/* Button styles */
+button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s;
+}
+
+button.add-comment-btn {
+  background-color: #efbb20;
+  color: white;
+}
+
+button.add-comment-btn:hover {
+  background-color: #d9a619;
+}
+
+button.view-logs-btn {
+  background-color: #109bc5;
+  color: white;
+}
+
+button.view-logs-btn:hover {
+  background-color: #0d7ea0;
+}
+
+button.add-log-btn {
+  background-color: #efbb20;
+  color: white;
+}
+
+button.add-log-btn:hover {
+  background-color: #d9a619;
+}
+
+button.close-logs-dialog {
+  background-color: #e74c3c;
+  color: white;
+}
+
+button.close-logs-dialog:hover {
+  background-color: #c0392b;
+}
+
+/* Dialog styles */
+.dialog-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dialog {
+  background-color: white;
+  border-radius: 10px;
+  padding: 20px;
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.dialog h2 {
+  margin: 5px 0px;
+  font-size: 1.4rem;
+  color: #109bc5;
+}
+
+.dialog h3 {
+  margin: 5px 0px;
+  font-size: 1.2rem;
+  color: #109bc5;
+}
+
+.dialog h4 {
+  margin: 5px 0px 10px;
+  font-size: 1rem;
+  color: #109bc5;
+}
+
+.dialog p {
+  margin: 5px 0px;
+  font-size: 1rem;
+  color: #333;
+}
+
+.input-group {
+  margin-bottom: 20px;
+}
+
+.input-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 1rem;
+  color: #333;
+}
+
+.input-group select, .input-group textarea, .input-group input[type="range"] {
+  width: 92%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.input-group select:focus, .input-group textarea:focus, .input-group input[type="range"]:focus {
+  outline: none;
+  border-color: #109bc5;
+  box-shadow: 0 0 5px rgba(16, 155, 197, 0.5);
+}
+
+textarea {
+  resize: none;
+  height: 100px;
+}
+
+input[type="range"] {
+  appearance: none;
+  height: 8px;
+  background: #ddd;
+  border-radius: 5px;
+  margin-top: 5px;
+  margin-bottom: 15px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #109bc5;
+  cursor: pointer;
+}
+
+.dialog .btns {
+  display: flex;
+  justify-content: space-between;
+}
+
+.dialog .btns button {
+  flex: 1;
+  margin: 0 5px;
+}
+
+button.close-button {
+  background-color: #e74c3c;
+  color: white;
+}
+
+button.close-button:hover {
+  background-color: #c0392b;
+}
+
+button.confirm-button {
+  background-color: #efbb20;
+  color: white;
+}
+
+button.confirm-button:hover {
+  background-color: #d9a619;
+}
+
+.error-dialog {
+  background-color: #e74c3c;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  text-align: center;
+  margin: 90px 0px -80px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 20px 0;
+}
+
+ul li {
+  background-color: #f9f9f9;
+  padding: 10px;
+  margin-bottom: 5px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+}
+
+.new-sheet-dialog {
+    max-height: 80%;
+    overflow-y: auto;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .teacher-container {
+    padding: 15px;
+  }
+
+  h3 {
+    font-size: 1.2rem;
+  }
+
+  .students-table th, .students-table td {
+    padding: 8px;
+    font-size: 0.9rem;
+  }
+
+  button {
+    padding: 8px 10px;
+    font-size: 0.9rem;
+  }
+
+  .dialog {
+    width: 95%;
+    padding: 15px;
+  }
+
+  .dialog h2, .dialog h3, .dialog h4 {
+    font-size: 1rem;
+  }
+
+  .input-group select, .input-group textarea, .input-group input[type="range"] {
+    width: 100%;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .teacher-page .header p {
+    font-size: 0.9rem;
+  }
+
+  .teacher-page .header .header-button {
+    font-size: 0.75rem;
+  }
+
+  .teacher-container {
+    margin-top: 70px;
+  }
+
+  h3 {
+    font-size: 1rem;
+  }
+
+  .students-table th, .students-table td {
+    font-size: 0.8rem;
+  }
+
+  button {
+    padding: 6px 8px;
+    font-size: 0.8rem;
+  }
+
+  .dialog {
+    padding: 10px;
+  }
+
+  .dialog h2, .dialog h3, .dialog h4 {
+    font-size: 0.9rem;
+  }
+
+  .input-group select, .input-group textarea, .input-group input[type="range"] {
+    font-size: 0.8rem;
+    width: 92%;
+  }
+}
