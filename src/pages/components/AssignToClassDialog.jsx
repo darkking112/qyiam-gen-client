@@ -38,10 +38,10 @@ function AssignToClassDialog({ user, classes, onCancel, onConfirm }) {
         </select>
 
         <div className="btns">
-          <button onClick={onCancel} className="confirm-button">
+          <button onClick={onCancel} className="close-button">
             {"إلغاء"}
           </button>
-          <button onClick={handleConfirm} className="close-button">
+          <button onClick={handleConfirm} className="confirm-button">
             {"تأكيد"}
           </button>
         </div>

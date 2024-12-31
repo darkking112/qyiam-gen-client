@@ -324,7 +324,7 @@ function Admin() {
 
   return (
     <div className="admin-page">
-      <Header isLoginPage={false} name={user.name} />
+      <Header isLoginPage={false} name={user ? user.name : ""} />
       {showErrorDialog && (
         <div className="error-dialog">
           <p>{errorMessage}</p>
