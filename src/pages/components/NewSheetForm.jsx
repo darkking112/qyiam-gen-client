@@ -52,6 +52,7 @@ const NewSheetForm = ({ student, onClose, onSubmit, insertedBy }) => {
               onChange={handleChange}
             />
           </div>
+
           <div>
             <label>{"المحافظة على نوافل الصلوات"}</label>
             <input
