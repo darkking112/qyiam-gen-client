@@ -5,6 +5,14 @@ body {
   background-color: #f4f4f4;
   color: #333;
   direction: rtl;
+  padding: 0;
+  overflow: hidden
+}
+
+html {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
 }
 
 /* Student Page Styles */
@@ -16,7 +24,8 @@ body {
 }
 
 .student-container {
-  width: 90%;
+  width: 100%;
+  box-sizing: border-box;
   max-width: 1200px;
   background-color: white;
   border-radius: 10px;
@@ -63,16 +72,18 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  
 }
 
 .dialog {
   background-color: white;
   border-radius: 10px;
-  padding: 20px;
+  /* padding: 20px; */
   width: 90%;
   max-width: 400px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   text-align: center;
+  padding: 0;
 }
 
 .dialog h2 {
