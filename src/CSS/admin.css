@@ -229,3 +229,13 @@ button:hover {
   background-color: #ddd;
   color: black;
 }
+
+button.remove-user {
+  background-color: #e74c3c;
+  color: white;
+}
+
+button.remove-user:hover {
+  background-color: #c0392b;
+  color: white;
+}

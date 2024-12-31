@@ -369,7 +369,10 @@ function Admin() {
                               : "تعيين كمعلم حلقة"}
                           </button>
                         ) : null}
-                        <button onClick={() => handleRemoveUserClick(user)}>
+                        <button
+                          onClick={() => handleRemoveUserClick(user)}
+                          className="remove-user"
+                        >
                           {"إزالة المستحدم"}
                         </button>
                       </td>

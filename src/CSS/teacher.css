@@ -104,6 +104,13 @@ button.close-logs-dialog:hover {
   background-color: #c0392b;
 }
 
+.ok-btn {
+  font-size: 1rem;
+  margin-top: 5px;
+  background-color: #eaeaea;
+  color: #000;
+}
+
 /* Dialog styles */
 .dialog-overlay {
   position: fixed;
@@ -160,6 +167,7 @@ button.close-logs-dialog:hover {
   margin-bottom: 5px;
   font-size: 1rem;
   color: #333;
+  padding-right: 15px;
 }
 
 .input-group select, .input-group textarea, .input-group input[type="range"] {
@@ -301,6 +309,7 @@ ul li {
   }
 
   .teacher-container {
+    width: 100%;
     margin-top: 70px;
   }
 
@@ -313,7 +322,7 @@ ul li {
   }
 
   button {
-    padding: 6px 8px;
+    padding: 5px 7px;
     font-size: 0.8rem;
   }
 

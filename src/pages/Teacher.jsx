@@ -166,6 +166,9 @@ function Teacher() {
       {showErrorDialog ? (
         <div className="error-dialog">
           <p>{errorMessage}</p>
+          <button onClick={() => setShowErrorDialog(false)} className="ok-btn">
+            {"حسناً"}
+          </button>
         </div>
       ) : (
         <div className="teacher-container">

@@ -17,11 +17,11 @@ function SheetLogsDialog({ student, logs, onClose, onAddSheet }) {
         )}
 
         <div className="btns">
-          <button className="add-log-btn" onClick={onAddSheet}>
-            {"إضافة سجل"}
-          </button>
           <button className="close-logs-dialog" onClick={onClose}>
             {"إغلاق"}
+          </button>
+          <button className="add-log-btn" onClick={onAddSheet}>
+            {"إضافة سجل"}
           </button>
         </div>
       </div>
