@@ -80,12 +80,11 @@ html {
 .dialog {
   background-color: white;
   border-radius: 10px;
-  /* padding: 20px; */
+  padding: 20px;
   width: 90%;
   max-width: 400px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   text-align: center;
-  padding: 0;
 }
 
 .dialog h2 {
