@@ -9,6 +9,8 @@ import NewClassForm from "./components/NewClassForm";
 import RemoveClassDialog from "./components/RemoveClassDialog";
 import RenameClassDialog from "./components/RenameClassDialog";
 import { useLocation } from "react-router";
+import SheetLogsDialog from "./components/SheetLogsDialog";
+import FilledSheetDialog from "./components/FilledSheetDialog";
 
 function Admin() {
   const location = useLocation();
@@ -29,6 +31,12 @@ function Admin() {
   const [showNewClassForm, setShowNewClassForm] = useState(false);
   const [showRenameClassDialog, setShowRenameClassDialog] = useState(false);
   const [showRemoveClassDialog, setShowRemoveClassDialog] = useState(false);
+
+  const [showStudentSheets, setShowStudentSheets] = useState(false);
+  const [studentSheets, setStudentsSheets] = useState([]);
+  const [selectedStudent, setSelectedStudent] = useState(null);
+  const [sheet, setSheet] = useState(null);
+  const [showSheet, setShowSheet] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -322,6 +330,55 @@ function Admin() {
     setShowRemoveClassDialog(false);
   };
 
+  //
+  const handleShowStudentLogs = async (user) => {
+    setSelectedStudent(user);
+    // setStudentsSheet
+    const res = await fetch(
+      `${process.env.REACT_APP_BACKEND_URL}/admin/get-student-sheets/${user.userID}`
+    );
+    const response = await res.json();
+    if (response.status === "success") {
+      setStudentsSheets(response.sheets);
+      setShowStudentSheets(true);
+    } else if (response.status === "failed") {
+      setStudentsSheets("لا يوجد أي سجل مسبق لهذا الطالب");
+      setShowStudentSheets(true);
+    } else {
+      setErrorMessage("حدث خطأ، يرجى المحاولة لاحقا");
+      setShowErrorDialog(true);
+    }
+  };
+
+  const onCloseStudentLogs = () => {
+    setShowStudentSheets(false);
+  };
+
+  //
+  const handelViewSheetClick = async (sheetID) => {
+    const res = await fetch(
+      `${process.env.REACT_APP_BACKEND_URL}/admin/get-student-sheet/${sheetID}`
+    );
+
+    const response = await res.json();
+    if (response.status === "success") {
+      setSheet(response.sheet);
+      setShowSheet(true);
+    } else if (response.status === "failed") {
+      setErrorMessage("عذراً، السجل غير متاح");
+      setShowErrorDialog(true);
+      return;
+    } else {
+      setErrorMessage("حدث خطأ، يرجى المحاولة لاحقا");
+      setShowErrorDialog(true);
+      return;
+    }
+  };
+
+  const handleColseSheetClick = () => {
+    setShowSheet(false);
+  };
+
   return (
     <div className="admin-page">
       <Header isLoginPage={false} name={user ? user.name : ""} />
@@ -367,6 +424,14 @@ function Admin() {
                             {user.role === "Student"
                               ? "نقل الطالب لحلقة"
                               : "تعيين كمعلم حلقة"}
+                          </button>
+                        ) : null}
+                        {user.role === "Student" ? (
+                          <button
+                            className="view-logs-btn"
+                            onClick={() => handleShowStudentLogs(user)}
+                          >
+                            {"عرض السجل اليومي"}
                           </button>
                         ) : null}
                         <button
@@ -454,6 +519,19 @@ function Admin() {
             onClose={onResetPasswrodCancel}
             onSubmit={onResetPasswrodConfirm}
           />
+        ) : null}
+
+        {showStudentSheets ? (
+          <SheetLogsDialog
+            student={selectedStudent}
+            logs={studentSheets}
+            onClose={onCloseStudentLogs}
+            onViewClick={handelViewSheetClick}
+          />
+        ) : null}
+
+        {showSheet ? (
+          <FilledSheetDialog sheet={sheet} onClose={handleColseSheetClick} />
         ) : null}
 
         {showRemoveUserDialog ? (

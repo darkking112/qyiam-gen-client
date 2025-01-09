@@ -36,7 +36,7 @@ const NewSheetForm = ({ student, onClose, onSubmit, insertedBy }) => {
   };
 
   return (
-    <div className="dialog-overlay">
+    <div className="dialog-overlay" onClick={onClose}>
       <div className="dialog new-sheet-dialog">
         <h3>{`الطالب: ${student.name}`}</h3>
         <h4>{"السجل اليومي"}</h4>

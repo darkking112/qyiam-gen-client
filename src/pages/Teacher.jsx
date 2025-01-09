@@ -5,6 +5,7 @@ import NewCommentDialog from "./components/NewCommentDialog";
 import "../CSS/teacher.css";
 import SheetLogsDialog from "./components/SheetLogsDialog";
 import NewSheetForm from "./components/NewSheetForm";
+import FilledSheetDialog from "./components/FilledSheetDialog";
 
 function Teacher() {
   const location = useLocation();
@@ -18,6 +19,9 @@ function Teacher() {
   const [studentSheets, setStudentsSheets] = useState([]);
   const [showStudentSheets, setShowStudentSheets] = useState(false);
   const [showNewSheetForm, setNewShowSheetForm] = useState(false);
+
+  const [showSheet, setShowSheet] = useState(false);
+  const [sheet, setSheet] = useState(null);
 
   useEffect(() => {
     if (!teacher) {
@@ -159,6 +163,31 @@ function Teacher() {
     setNewShowSheetForm(false);
   };
 
+  // handking viewing a specific log
+  const handelViewSheetClick = async (sheetID) => {
+    const res = await fetch(
+      `${process.env.REACT_APP_BACKEND_URL}/teacher/get-student-sheet/${sheetID}`
+    );
+
+    const response = await res.json();
+    if (response.status === "success") {
+      setSheet(response.sheet);
+      setShowSheet(true);
+    } else if (response.status === "failed") {
+      setErrorMessage("عذراً، السجل غير متاح");
+      setShowErrorDialog(true);
+      return;
+    } else {
+      setErrorMessage("حدث خطأ، يرجى المحاولة لاحقا");
+      setShowErrorDialog(true);
+      return;
+    }
+  };
+
+  const handleColseSheetClick = () => {
+    setShowSheet(false);
+  };
+
   return (
     <div className="teacher-page">
       <Header isLoginPage={false} name={teacher ? teacher.name : ""} />
@@ -221,7 +250,12 @@ function Teacher() {
               logs={studentSheets}
               onClose={onCloseStudentLogs}
               onAddSheet={handleAddSheetClick}
+              onViewClick={handelViewSheetClick}
             />
+          ) : null}
+
+          {showSheet ? (
+            <FilledSheetDialog sheet={sheet} onClose={handleColseSheetClick} />
           ) : null}
 
           {showNewSheetForm ? (

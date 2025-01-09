@@ -17,7 +17,7 @@ const NewUserForm = ({ onClose, onSubmit }) => {
   };
 
   return (
-    <div className="dialog-overlay">
+    <div className="dialog-overlay" onClick={onClose}>
       <div className="dialog">
         <h2>{"إضافة مستخدم جديد"}</h2>
         <form onSubmit={handleSubmit}>

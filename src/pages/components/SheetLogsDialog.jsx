@@ -1,15 +1,23 @@
 import React from "react";
 
-function SheetLogsDialog({ student, logs, onClose, onAddSheet }) {
+function SheetLogsDialog({ student, logs, onClose, onAddSheet, onViewClick }) {
   return (
-    <div className="dialog-overlay">
+    <div className="dialog-overlay" onClick={onClose}>
       <div className="dialog">
         <h3>{`الطالب: ${student.name}`}</h3>
         <h4>{"السجل اليومي"}</h4>
         {Array.isArray(logs) ? (
           <ul>
             {logs.map((log, index) => {
-              return <li key={index}>{log.date}</li>;
+              return (
+                <li
+                  className="logs-list-item"
+                  key={index}
+                  onClick={() => onViewClick(log.sheetID)}
+                >
+                  {log.date}
+                </li>
+              );
             })}
           </ul>
         ) : (
@@ -20,9 +28,11 @@ function SheetLogsDialog({ student, logs, onClose, onAddSheet }) {
           <button className="close-logs-dialog" onClick={onClose}>
             {"إغلاق"}
           </button>
-          <button className="add-log-btn" onClick={onAddSheet}>
-            {"إضافة سجل"}
-          </button>
+          {onAddSheet ? (
+            <button className="add-log-btn" onClick={onAddSheet}>
+              {"إضافة سجل"}
+            </button>
+          ) : null}
         </div>
       </div>
     </div>

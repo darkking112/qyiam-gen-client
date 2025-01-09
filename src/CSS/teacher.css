@@ -264,6 +264,11 @@ ul li {
     overflow-y: auto;
 }
 
+.logs-list-item:hover{
+  background-color: #dfdfdf;
+  cursor: pointer;
+}
+
 /* Media Queries */
 @media (max-width: 768px) {
   .teacher-container {

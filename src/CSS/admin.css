@@ -239,3 +239,8 @@ button.remove-user:hover {
   background-color: #c0392b;
   color: white;
 }
+
+.logs-list-item:hover{
+  background-color: #dfdfdf;
+  cursor: pointer;
+}

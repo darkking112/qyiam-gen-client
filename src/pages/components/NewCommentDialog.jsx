@@ -14,7 +14,7 @@ const NewCommentDialog = ({ student, onClose, onConfirm }) => {
   };
 
   return (
-    <div className="dialog-overlay">
+    <div className="dialog-overlay" onClick={onClose}>
       <div className="dialog">
         <h2>{`الطالب: ${student.name}`}</h2>
         <p>{"إضافة ملاحظة"}</p>
