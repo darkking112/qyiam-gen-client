@@ -13,7 +13,7 @@ function RenameClassDialog({ clas, onConfirm, onCancel }) {
   };
 
   return (
-    <div className="dialog-overlay" onClick={onCancel}>
+    <div className="dialog-overlay">
       <div className="dialog">
         <h3>{`إعادة تسمية الحلقة ${clas.className}`}</h3>
         <form onSubmit={handleSubmit}>

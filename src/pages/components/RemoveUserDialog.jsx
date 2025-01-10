@@ -2,7 +2,7 @@ import React from "react";
 
 function RemoveUserDialog({ user, onConfirm, onCancel }) {
   return (
-    <div className="dialog-overlay" onClick={onCancel}>
+    <div className="dialog-overlay">
       <div className="dialog">
         <h3>{`هل أنت متأكد من أنك تريد حذف حساب المستخدم ${user.name} ؟`}</h3>
         <div className="btns">

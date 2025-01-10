@@ -2,7 +2,7 @@ import React from "react";
 import "./filledSheetDialog.css";
 function FilledSheetDialog({ sheet, onClose }) {
   return (
-    <div className="sheet-dialog-overlay" onClick={onClose}>
+    <div className="sheet-dialog-overlay">
       <div className="sheet-dialog">
         <h3 className="sheet-date">{`${sheet.date}`}</h3>
 

@@ -2,7 +2,7 @@ import React from "react";
 
 function SheetLogsDialog({ student, logs, onClose, onAddSheet, onViewClick }) {
   return (
-    <div className="dialog-overlay" onClick={onClose}>
+    <div className="dialog-overlay">
       <div className="dialog">
         <h3>{`الطالب: ${student.name}`}</h3>
         <h4>{"السجل اليومي"}</h4>

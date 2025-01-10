@@ -14,7 +14,7 @@ const ResetPasswordDialog = ({ user, onClose, onSubmit }) => {
   };
 
   return (
-    <div className="dialog-overlay" onClick={onClose}>
+    <div className="dialog-overlay">
       <div className="dialog">
         <h2>{user.name}</h2>
         <p>{"إعادة تعيين كلمة سر المستخدم"}</p>

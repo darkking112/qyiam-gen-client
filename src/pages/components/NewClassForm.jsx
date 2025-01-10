@@ -14,7 +14,7 @@ const NewClassForm = ({ onClose, onConfirm }) => {
   };
 
   return (
-    <div className="dialog-overlay" onClick={onClose}>
+    <div className="dialog-overlay">
       <div className="dialog">
         <h2>{"إضافة حلقة جديدة"}</h2>
         <form onSubmit={handleSubmit}>

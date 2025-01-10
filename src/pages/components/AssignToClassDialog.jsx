@@ -13,7 +13,7 @@ function AssignToClassDialog({ user, classes, onCancel, onConfirm }) {
   let role = user.role === "Student" ? "الطالب" : "المعلم";
 
   return (
-    <div className="dialog-overlay" onClick={onCancel}>
+    <div className="dialog-overlay">
       <div className="dialog">
         <h4>{`${role}: ${user.name}`}</h4>
         <h5>{`إختر الحلقة: `}</h5>
