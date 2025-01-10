@@ -5,6 +5,7 @@ body {
   background-color: #f4f4f4;
   color: #333;
   direction: rtl;
+  /* overflow: scroll; */
 }
 
 /* Admin page styles */
@@ -13,6 +14,7 @@ body {
   flex-direction: column;
   align-items: center;
   margin-top: 60px;
+  min-height: 100vh;
 }
 
 .admin-container {
