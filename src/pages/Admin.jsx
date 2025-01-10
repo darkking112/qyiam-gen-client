@@ -408,7 +408,7 @@ function Admin() {
                       <td>{user.name}</td>
                       <td>
                         {user.role === "Student"
-                          ? "طالب"
+                          ? "ولي أمر الطالب"
                           : user.role === "Teacher"
                           ? "معلم"
                           : "مدير"}
